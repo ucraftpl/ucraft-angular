@@ -3,4 +3,4 @@
 Stara (końcówka 2018) strona uCrafta.
 Nieresponsywna, zabugowana, oparta o AngularJS i blockchain Steem.
 
-Generalnie nie działa. Wrzucam jako pamiątka.
+Na szybko naprawiona, więc powiedzmy że działa. Zostawiam to sobie na pamiątke.
