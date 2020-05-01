@@ -17,12 +17,18 @@ app.run(function ($rootScope, $location) {
 	$rootScope.$applyAsync();
 });
 
-app.controller('Main', function ($scope) {
+app.controller('Main', function ($scope, $routeParams) {
 	$scope.loadPosts = function () {
 		console.log("Loading posts...");
 		var posts = [];
 		let parsed = 0;
-		steem.api.getBlogEntries(steemAccount, 0, 5, function (err, data) {
+
+		let startFrom = 0;
+		if($routeParams.page){
+			startFrom = (($routeParams.page - 1) * 5);
+		}
+
+		steem.api.getBlogEntries(steemAccount, startFrom, 5, function (err, data) {
 			if(err){
 				console.log(err);
 			}
@@ -82,6 +88,10 @@ app.controller("PostController", function ($scope, $routeParams) {
 app.config(function ($routeProvider) {
 	$routeProvider
 		.when("/", {
+			controller: "Main",
+			templateUrl: "app/views/index.html"
+		})
+		.when("/page/:page", {
 			controller: "Main",
 			templateUrl: "app/views/index.html"
 		})
