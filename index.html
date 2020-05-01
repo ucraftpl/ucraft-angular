@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="ucraft">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>uCraft.pl Serwer SkyBlock 1.13 1.12.2</title> <!-- todo: dynamiczna zmiana title: ng-bind="title + ' - uCraft.pl'"  -->
+	<meta name="description" content="Strona Polskiego serwera Minecraft SkyBlock. Dołącz do nas już dziś!">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="manifest" href="site.webmanifest">
+
+	<!-- ICOOOONS -->
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/app/icons/apple-touch-icon-57x57.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/app/icons/apple-touch-icon-114x114.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/app/icons/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/app/icons/apple-touch-icon-144x144.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/app/icons/apple-touch-icon-60x60.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/app/icons/apple-touch-icon-120x120.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/app/icons/apple-touch-icon-76x76.png"/>
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/app/icons/apple-touch-icon-152x152.png"/>
+	<link rel="icon" type="image/png" href="/app/icons/favicon-196x196.png" sizes="196x196"/>
+	<link rel="icon" type="image/png" href="/app/icons/favicon-96x96.png" sizes="96x96"/>
+	<link rel="icon" type="image/png" href="/app/icons/favicon-32x32.png" sizes="32x32"/>
+	<link rel="icon" type="image/png" href="/app/icons/favicon-16x16.png" sizes="16x16"/>
+	<link rel="icon" type="image/png" href="/app/icons/favicon-128.png" sizes="128x128"/>
+	<meta name="application-name" content="uCraft.pl"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF"/>
+	<meta name="msapplication-TileImage" content="mstile-144x144.png"/>
+	<meta name="msapplication-square70x70logo" content="mstile-70x70.png"/>
+	<meta name="msapplication-square150x150logo" content="mstile-150x150.png"/>
+	<meta name="msapplication-wide310x150logo" content="mstile-310x150.png"/>
+	<meta name="msapplication-square310x310logo" content="mstile-310x310.png"/>
+
+	<!-- Stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,500,600" rel="stylesheet">
+	<link rel="stylesheet" href="/app/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/app/css/main.css">
+	<link rel="stylesheet" href="/app/css/style.css">
+
+	<!-- Angular things -->
+	<base href="/">
+</head>
+<body>
+<!-- Page Content START -->
+<div class="page-content">
+	<!-- Main Nav START -->
+	<nav id="main-nav" class="main-nav fixed">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="nav-header d-flex justify-content-between align-items-center">
+						<a href="/" class="logo" title="uCraft.pl">
+							<img class="logo-img" src="app/img/logo.png" alt="uCraft.pl" draggable="false">
+						</a>
+					</div>
+					<div class="nav-wrap">
+						<ul id="nav" class="nav-wrap__list menu">
+							<li><a href="/" title="Główna">Główna</a></li>
+							<li><a href="skarga" title="Zgłoś skarge">Zgłoś skarge</a></li>
+							<li><a href="unban" title="Proszę o unbana"><span class="red-fox">Proszę o unbana</span></a>
+							</li>
+						</ul>
+						<div class="riglt-floats-xs">
+							<a href="https://www.sklepmc.pl/shop/GLoDFXJz" class="btn-shop"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+								Sklepik</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Main Nav END -->
+	<br/><br/>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 col-md-9" id="news-list">
+				<ng-view></ng-view>
+			</div>
+			<div class="col-lg-3 col-md-3">
+				<div class="right-block">
+					<div class="n-m">Serwery</div>
+					<br/>
+					<h5>SkyBlock (1.12.2 - 1.15.2)</h5>
+					<iframe src="https://minecraft-list.org/widget/4131" allowtransparency="true" width="100%" height="80" frameborder="0"></iframe><br/>
+				</div>
+				<div class="right-block">
+					<div class="n-m">Pogadaj z nami</div>
+					<a href="https://discord.gg/tJudVqM" rel="nofollow" target="_blank"><img
+							src="https://discordapp.com/api/guilds/516358480718856213/widget.png?style=banner3"
+							class="img-fluid" alt="Dolacz do nas na Discordzie!"/></a><br/><br/>
+				</div>
+				<div class="right-block vk">
+					<div class="n-m">Nasza ekipa</div>
+					<img src="https://minotar.net/avatar/artur9010/24" alt="Glowka!"> <span class="badge badge-danger"><strong>Właściciel</strong></span> artur9010<br/>
+					<img src="https://minotar.net/avatar/jahumen/24" alt="Glowka!"> <span class="badge badge-danger">Admin</span> jahumen<br/>
+					<img src="https://minotar.net/avatar/vylence/24" alt="Glowka!"> <span class="badge badge-danger">Admin</span> Vylence<br/>
+					<img src="https://minotar.net/avatar/Saczi/24" alt="Glowka!"> <span class="badge badge-danger">Admin</span> Saczi<br/>
+					<img src="https://minotar.net/avatar/veitae/24" alt="Glowka!"> <span class="badge badge-info">Moderator</span> Veitae<br/>
+					<img src="https://minotar.net/avatar/_avio_/24" alt="Glowka!"> <span class="badge badge-info">Moderator</span> _Avio_<br/>
+					<img src="https://minotar.net/avatar/keffirekmb/24" alt="Glowka!"> <span class="badge badge-info">Moderator</span> KeffirekMB<br/>
+					<img src="https://minotar.net/avatar/kamstaq/24" alt="Glowka!"> <span class="badge badge-success">ChatMod</span> kamstaq<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer START -->
+	<footer class="section site-footer bg-dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-md-9 text-center">
+					<p class="footer-text">© ucraft.pl 2016-2019 | <a href="https://git.juniorjpdj.pl/ucraft/ucraft.pl">GitLab</a> | <a href="https://ucraft.pl/rss.xml">RSS</a>
+					</p>
+				</div>
+				<div class="col-md-3">
+					<a href="http://larts.pro/" rel="nofollow" target="_blank">
+						<span class="corp-design"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer END -->
+</div>
+<!-- Page Content END -->
+
+<!-- Random shit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.23/bootstrap-native-v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.1/marked.min.js"></script>
+<script src="/app/js/libs/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sc2-sdk@latest"></script>
+<script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+<!-- Angular & modules -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.8/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.8/angular-sanitize.js"></script>
+<script src="/app/js/app.js"></script>
+</body>
+</html>

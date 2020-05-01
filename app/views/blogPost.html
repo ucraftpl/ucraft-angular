@@ -1,0 +1,86 @@
+<ng-controller ng-controller="PostController as postController" ng-init="loadPost()">
+	<!-- Loading -->
+	<div class="loading" ng-show="!post && !notFound">
+		<img src="/app/img/clock.png"><br/>
+		<h2>Ładowanie...</h2><br/><br/>
+		<p>Jeśli trwa ono dłużej niż 10 sekund, odśwież strone.</p>
+	</div>
+
+	<!-- Not found -->
+	<div class="news-link" ng-show="notFound">
+		<div style="text-align: center;">
+			<h1>Post, którego szukasz nie istnieje</h1>
+			<p>Niestety, niczego tutaj nie ma. Możliwe, że w adresie strony jest literówka.<br/><strong>(╯°□°）╯︵ ┻━┻</strong></p>
+		</div>
+	</div>
+
+	<!-- Body -->
+	<div class="news-link" ng-show="post">
+		<h3 class="news-log"><span class="time-data">{{post.date}}</span> {{post.title}}</h3>
+		<hr/>
+		<p class="description" ng-bind-html="post.body"></p>
+	</div>
+	<div class="news-link" style="margin-top: -27px;" ng-init="loadComments()" ng-show="post">
+		<div class="row">
+			<div class="col-md-9">
+				<h3>Komentarze <strong ng-show="comments.length">({{comments.length}})</strong></h3>
+				<p ng-hide="!commentsLoaded || comments.length">Nikt nic jeszcze nie napisał.</p>
+				<div class="comment mb-2 row" ng-repeat="comment in comments">
+					<div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
+						<img class="mx-auto rounded-circle img-fluid" src="https://img.busy.org/@{{comment.author}}/" alt="avatar">
+					</div>
+					<div class="comment-content col-md-11 col-sm-10"> <!--todo: data napisania komentarza -->
+						<h6 class="small comment-meta"><b>@{{comment.author}}</b> Today, 2:38 (<a href="" ng-click="vote(comment.author, comment.permlink, 10000)">+{{comment.net_votes}}</a>)</h6>
+						<div class="comment-body">
+							<p>
+								{{comment.body}}
+								<br>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Stinky workaround, real center -->
+			<div class="loading col-md-12" ng-show="!commentsLoaded">
+				<img src="/app/img/clock.png"><br/><br/>
+				<h4>Ładowanie komentarzy...</h4><br>
+			</div>
+		</div>
+	</div>
+
+	<div class="news-link" style="margin-top: -27px;" ng-show="post && commentsLoaded">
+		<h3>Dodaj komentarz</h3>
+		<!-- guest module -->
+		<p ng-show="!isAuth()">Aby dodac komentarz - zaloguj sie.<br/>Dodawanie komentarzy bez logowania zostanie wprowadzone pozniej.</p>
+		<!--<form ng-show="!isAuth()" ng-submit="commentGuest()">
+			<div class="form-group">
+				<label for="username">Nick</label>
+				<input type="text" class="form-control" id="username" placeholder="Podaj swój nick (max. 30 znaków)" ng-model="nickname" required minlength="3" maxlength="30">
+			</div>
+			<div class="form-group">
+				<label for="comment">Komentarz</label>
+				<input type="text" class="form-control" id="comment" placeholder="Komentarz (max. 500 znaków)" ng-model="message" required minlength="5" maxlength="500">
+			</div>
+			<div class="form-group">
+				<label>Captcha</label>
+				<div class="coinhive-captcha" data-hashes="1024" data-key="2f3MU2sF973bP0GORjUgvI7e3pHgRKbJ" ng-init="fixCoinhiveCaptcha()">
+					Ładowanie captchy, jeśli się ona nie wyświetli to <b>wyłącz adblocka.</b>
+				</div>
+			</div>
+			<button class="btn btn-primary" type="submit" ng-disabled="loading">Dodaj</button>
+		</form>-->
+
+		<!-- registered module -->
+		<form ng-show="isAuth()" ng-submit="comment()">
+			<div class="form-group">
+				<label for="username1">Nick</label>
+				<input type="text" class="form-control" id="username1" disabled value="{{user.name}}">
+			</div>
+			<div class="form-group">
+				<label for="comment1">Komentarz</label>
+				<input type="text" class="form-control" id="comment1" placeholder="Komentarz (max. 500 znaków)" ng-model="message" required minlength="5" maxlength="500">
+			</div>
+			<button class="btn btn-primary" type="submit" ng-disabled="loading">Dodaj</button>
+		</form>
+	</div>
+</ng-controller>
