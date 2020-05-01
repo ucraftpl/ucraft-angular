@@ -5,11 +5,11 @@
 		<p>Jeśli trwa ono dłużej niż 10 sekund, odśwież strone.</p>
 	</div>
 	<div class="news-link" ng-repeat="post in posts">
-		<h3 class="news-log"><span class="time-data">{{post.date}}</span> <a href="blog/{{post.permlink}}" ng-hide="{{post.customAuthor}}">{{post.title}}</a> <a href="blog/@{{post.author}}/{{post.permlink}}" ng-show="{{post.customAuthor}}">{{post.title}}</a>
+		<h3 class="news-log"><span class="time-data">{{post.date}}</span> <a href="/#/blog/{{post.permlink}}">{{post.title}}</a>
 		</h3>
 		<hr/>
 		<p class="description" ng-bind-html="post.body"></p>
-		<a href="blog/{{post.permlink}}" class="btn-view"><i class="fa fa-eye" aria-hidden="true"></i> Czytaj
+		<a href="/#/blog/{{post.permlink}}" class="btn-view"><i class="fa fa-eye" aria-hidden="true"></i> Czytaj
 			dalej...</a>
 	</div>
 </ng-controller>
