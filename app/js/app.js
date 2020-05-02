@@ -7,12 +7,6 @@ app.config(['$locationProvider', function ($locationProvider) {
 	$locationProvider.hashPrefix('');
 }]);
 
-//todo: wydzielenie controllerow do oddzielnych plikow
-//todo: pageinacja strony glownej
-//todo: szukajka?
-//todo: nesting(?) komentarzy
-//todo: loadingi?
-
 app.run(function ($rootScope, $location) {
 	$rootScope.$applyAsync();
 });
@@ -37,7 +31,6 @@ app.controller('Main', function ($scope, $routeParams) {
 			for (var i = 0; i < data.length; i++) {
 				console.log(i);
 				steem.api.getContent(data[i].author, data[i].permlink, function(err, result){
-					//var result = JSON.parse(data);
 					var body = result.body;
                     if (body.length >= 500) {
                         body = body.substring(0, 499) + "... **[(Kliknij aby przeczytać cały tekst.)](blog/" + result.permlink + ")**";
@@ -95,14 +88,8 @@ app.config(function ($routeProvider) {
 			controller: "Main",
 			templateUrl: "app/views/index.html"
 		})
-		.when("/sklep", {
-			templateUrl: "app/views/sklep.html"
-		})
 		.when("/unban", {
 			templateUrl: "app/views/unban.html"
-		})
-		.when("/skarga", {
-			templateUrl: "app/views/skarga.html"
 		})
 		.when("/blog/:permlink", {
 			controller: "PostController",

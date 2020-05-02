@@ -1,15 +1,14 @@
 <ng-controller ng-controller="Main as main" ng-init="loadPosts()">
 	<div class="loading" ng-show="!posts">
-		<img src="/app/img/clock.png"><br/>
+		<img src="app/img/clock.png"><br/>
 		<h2>Ładowanie...</h2><br>
 		<p>Jeśli trwa ono dłużej niż 10 sekund, odśwież strone.</p>
 	</div>
-	<div class="news-link" ng-repeat="post in posts">
-		<h3 class="news-log"><span class="time-data">{{post.date}}</span> <a href="/#/blog/{{post.permlink}}">{{post.title}}</a>
-		</h3>
+	<article ng-repeat="post in posts">
+		<h1><span class="date">{{post.date}}</span> <a href="#/blog/{{post.permlink}}">{{post.title}}</a></h1>
 		<hr/>
-		<p class="description" ng-bind-html="post.body"></p>
-		<a href="/#/blog/{{post.permlink}}" class="btn-view"><i class="fa fa-eye" aria-hidden="true"></i> Czytaj
+		<p ng-bind-html="post.body"></p>
+		<a href="#/blog/{{post.permlink}}" class="btn-view"><i class="fa fa-eye" aria-hidden="true"></i> Czytaj
 			dalej...</a>
-	</div>
+	</article>
 </ng-controller>

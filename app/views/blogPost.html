@@ -1,23 +1,23 @@
 <ng-controller ng-controller="PostController as postController" ng-init="loadPost()">
 	<!-- Loading -->
 	<div class="loading" ng-show="!post && !notFound">
-		<img src="/app/img/clock.png"><br/>
+		<img src="app/img/clock.png"><br/>
 		<h2>Ładowanie...</h2><br/><br/>
 		<p>Jeśli trwa ono dłużej niż 10 sekund, odśwież strone.</p>
 	</div>
 
 	<!-- Not found -->
-	<div class="news-link" ng-show="notFound">
+	<article ng-show="notFound">
 		<div style="text-align: center;">
 			<h1>Post, którego szukasz nie istnieje</h1>
 			<p>Niestety, niczego tutaj nie ma. Możliwe, że w adresie strony jest literówka.<br/><strong>(╯°□°）╯︵ ┻━┻</strong></p>
 		</div>
-	</div>
+	</article>
 
 	<!-- Body -->
-	<div class="news-link" ng-show="post">
-		<h3 class="news-log"><span class="time-data">{{post.date}}</span> {{post.title}}</h3>
+	<article ng-show="post">
+		<h1><span class="date">{{post.date}}</span> {{post.title}}</h1>
 		<hr/>
-		<p class="description" ng-bind-html="post.body"></p>
-	</div>
+		<p ng-bind-html="post.body"></p>
+	</article>
 </ng-controller>
